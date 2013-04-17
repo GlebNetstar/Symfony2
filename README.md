@@ -14,22 +14,26 @@ instead of showing all list.
 
 
 AUTHORITY
+---------
 
  Gleb Tiltikov <gleb@netstar.od.ua>
  https://github.com/GlebNetstar
 
 
 LICENSE
+-------
 
  By MIT License
 
 
 VERSION
+-------
 
  1 alpha
 
 
 DEPENDENCIES
+------------
 
  - Symfony 2.1 or newer
  - jQuery
@@ -38,6 +42,7 @@ DEPENDENCIES
 
 
 INSTALLATION
+------------
 
  Enable bundle in kernel:
  new Netstar\FormSchemaBundle\NetstarFormSchemaBundle(),
@@ -58,13 +63,16 @@ INSTALLATION
   
 
 USAGE
+-----
 
  Have a look at Admin/ExampleAdmin.php
  
  Get new schema service:
+ 
+``` php
  $formSchema = $this->container->get('form.schema')->newSchema($formMapper->getFormBuilder()); // Creation of FormSchema object
  
- As the parameter you have to pass formBuilder of appropriate form.
+ // As the parameter you have to pass formBuilder of appropriate form.
  
  $form_relation1 = $formSchema->relationBuilder()
 	->setMaster('city')
@@ -78,11 +86,13 @@ USAGE
  $formSchema->addRelation($form_relation1); // You can add as many relatins as you wish
  
  $this->container->get('form.schema')->set($formSchema); // Process schema
+```
  
  
  
  To make FormRelationSonataAdminFilter you have to do the following:
  
+``` php
  $filterSchema = $this->container->get('form.schema')->newSonataFilter(); // Creation of SonataFilter object
 		
  $form_relation2 = $filterSchema->relationBuilder()
@@ -100,13 +110,17 @@ USAGE
  $filterSchema->addRelation($form_relation);
  
  $this->container->get('form.schema')->set($filterSchema, 'sonata_filter'); // 'sonata_filter' in parameter switching to Sonata Filter processing instead of Form Relation
+```
 
 
 KNOWN ISSUES
+------------
 
  - In Sonata, if object with relation is using as collection, problem with label field translation in dev environment.
 
+
 TODO
+----
 
  - Check and improve to Symfony 2.2 support (& Sonata 2.1), perhaps it already in accordance 
  
