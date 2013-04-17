@@ -19,22 +19,22 @@ class FormRelationSonataAdminFilter
     protected $filterName;
 
     /**
-     * @var integer
+     * @var string
      */
     protected $entity;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var string
      */
     protected $parentRelation;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var array
      */
     protected $orderByParams;
 
     /**
-     * @var string
+     * @var \Netstar\FormSchemaBundle\Model\FormRelationSonataAdminFilter
      */
     protected $slave;
 
@@ -46,10 +46,10 @@ class FormRelationSonataAdminFilter
     
     
     /**
-     * Set slaves
+     * Set filterName
      *
-     * @param string $name
-     * @return Areas
+     * @param string $filterName
+     * @return FormRelationSonataAdminFilter
      */
     public function setFilterName($filterName)
     {
@@ -71,8 +71,8 @@ class FormRelationSonataAdminFilter
     /**
      * Set master
      *
-     * @param string $name
-     * @return Areas
+     * @param string $entity
+     * @return FormRelationSonataAdminFilter
      */
     public function setEntity($entity)
     {
@@ -94,8 +94,8 @@ class FormRelationSonataAdminFilter
     /**
      * Set parentRelation
      *
-     * @param string $name
-     * @return Areas
+     * @param string $parentRelation
+     * @return FormRelationSonataAdminFilter
      */
     public function setParentRelation($parentRelation)
     {
@@ -119,8 +119,8 @@ class FormRelationSonataAdminFilter
     /**
      * Set orderByParams
      *
-     * @param boolean $orderByParams
-     * @return Areas
+     * @param array $orderByParams
+     * @return FormRelationSonataAdminFilter
      */
     public function setOrderByParams($orderByParams)
     {
@@ -132,7 +132,7 @@ class FormRelationSonataAdminFilter
     /**
      * Get orderByParams
      *
-     * @return boolean 
+     * @return array 
      */
     public function getOrderByParams()
     {
@@ -140,10 +140,10 @@ class FormRelationSonataAdminFilter
     }
 
     /**
-     * Set slaves
+     * Set slave
      *
-     * @param string $name
-     * @return Areas
+     * @param string $slave
+     * @return FormRelationSonataAdminFilter
      */
     public function setSlave($slave)
     {

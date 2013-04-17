@@ -16,37 +16,9 @@ use Netstar\FormSchemaBundle\Model\FormRelation;
 interface FormSchemaInterface
 {
     /**
-     * @param string $serviceId
-     * @param array  $classes
+     * @return array
      */
-    //public function setReader($serviceId, array $classes);
-
-    /**
-     * @param string $class
-     *
-     * @return bool
-     */
-    //public function hasReader($class);
-
-    /**
-     * @param string $class
-     *
-     * @return \Sonata\AdminBundle\Model\AuditReaderInterface
-     * @throws \RuntimeException
-     */
-    //public function getReader($class);
-    
-    //public function getFormBuilder();
-    
-    //public function addRelation(FormRelation $relation);
-    
     public function getRelations();
     
     public function relationBuilder();
-    
-    /*public function initUpdateForm($form);
-    
-    public function finalUpdateForm($form, $data);*/
-    
-    /*public static function getCurrentOptions($options);*/
 }

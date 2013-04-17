@@ -18,9 +18,6 @@ use Symfony\Component\DependencyInjection\Loader;
 
 class NetstarFormSchemaExtension extends Extension
 {
-    /**
-     * {@inheritDoc}
-     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();

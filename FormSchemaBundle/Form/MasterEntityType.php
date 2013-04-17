@@ -46,17 +46,11 @@ class MasterEntityType extends EntityType
     	$view->set('form_relation', $form->getAttribute('form_relation'));
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getParent()
     {
         return 'entity';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'master_entity';

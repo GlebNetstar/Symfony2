@@ -14,7 +14,7 @@ namespace Netstar\FormSchemaBundle\Model;
 class FormRelation
 {
     /**
-     * @var string
+     * @var integer
      */
     protected $id;
 
@@ -24,44 +24,39 @@ class FormRelation
     protected $master;
 
     /**
-     * @var string
+     * @var array
      */
     protected $slaves;
 
     /**
-     * @var integer
+     * @var string
      */
     protected $retrieveEntity;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var string
      */
     protected $findByFieldName;
 
     /**
-     * @var boolean
+     * @var array
      */
     protected $findByParams;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var array
      */
     protected $orderByParams;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var string
      */
     protected $resultFieldName;
 
     /**
-     * @var \Master\CoreBundle\Entity\Cities
+     * @var string
      */
     protected $queryBuilder;
-
-    /**
-     * @var \Master\CoreBundle\Entity\Cities
-     */
-    protected $options;
 
     
     public function __construct($master = null)
@@ -77,7 +72,7 @@ class FormRelation
     /**
      * Get id
      *
-     * @return string 
+     * @return integer 
      */
     public function getId()
     {
@@ -87,8 +82,8 @@ class FormRelation
     /**
      * Set slaves
      *
-     * @param string $name
-     * @return Areas
+     * @param string $slave
+     * @return FormRelation
      */
     public function setSlave($slave)
     {
@@ -100,8 +95,8 @@ class FormRelation
     /**
      * Set slaves
      *
-     * @param string $name
-     * @return Areas
+     * @param array $slaves
+     * @return FormRelation
      */
     public function setSlaves($slaves)
     {
@@ -113,7 +108,7 @@ class FormRelation
     /**
      * Get slaves
      *
-     * @return string 
+     * @return array 
      */
     public function getSlaves()
     {
@@ -123,8 +118,8 @@ class FormRelation
     /**
      * Set master
      *
-     * @param string $name
-     * @return Areas
+     * @param string $master
+     * @return FormRelation
      */
     public function setMaster($master)
     {
@@ -146,8 +141,8 @@ class FormRelation
     /**
      * Set retrieveEntity
      *
-     * @param string $name
-     * @return Areas
+     * @param string $retrieveEntity
+     * @return FormRelation
      */
     public function setRetrieveEntity($retrieveEntity)
     {
@@ -169,8 +164,8 @@ class FormRelation
     /**
      * Set findByFieldName
      *
-     * @param integer $position
-     * @return Areas
+     * @param string $findByFieldName
+     * @return FormRelation
      */
     public function setFindByFieldName($findByFieldName)
     {
@@ -182,7 +177,7 @@ class FormRelation
     /**
      * Get findByFieldName
      *
-     * @return integer 
+     * @return string 
      */
     public function getFindByFieldName()
     {
@@ -192,8 +187,8 @@ class FormRelation
     /**
      * Set findByParams
      *
-     * @param integer $position
-     * @return Areas
+     * @param array $findByParams
+     * @return FormRelation
      */
     public function setFindByParams($findByParams)
     {
@@ -205,7 +200,7 @@ class FormRelation
     /**
      * Get findByParams
      *
-     * @return integer 
+     * @return array 
      */
     public function getFindByParams()
     {
@@ -215,8 +210,8 @@ class FormRelation
     /**
      * Set orderByParams
      *
-     * @param boolean $orderByParams
-     * @return Areas
+     * @param array $orderByParams
+     * @return FormRelation
      */
     public function setOrderByParams($orderByParams)
     {
@@ -228,7 +223,7 @@ class FormRelation
     /**
      * Get orderByParams
      *
-     * @return boolean 
+     * @return array 
      */
     public function getOrderByParams()
     {
@@ -238,8 +233,8 @@ class FormRelation
     /**
      * Set resultFieldName
      *
-     * @param \Master\CoreBundle\Entity\Cities $city
-     * @return Areas
+     * @param string $resultFieldName
+     * @return FormRelation
      */
     public function setResultFieldName($resultFieldName)
     {
@@ -251,7 +246,7 @@ class FormRelation
     /**
      * Get resultFieldName
      *
-     * @return \Master\CoreBundle\Entity\Cities 
+     * @return string
      */
     public function getResultFieldName()
     {
@@ -261,8 +256,8 @@ class FormRelation
     /**
      * Set queryBuilder
      *
-     * @param \Master\CoreBundle\Entity\Cities $city
-     * @return Areas
+     * @param string $queryBuilder
+     * @return FormRelation
      */
     public function setQueryBuilder($queryBuilder)
     {
@@ -274,33 +269,10 @@ class FormRelation
     /**
      * Get queryBuilder
      *
-     * @return \Master\CoreBundle\Entity\Cities 
+     * @return string
      */
     public function getQueryBuilder()
     {
         return $this->queryBuilder;
-    }
-
-    /**
-     * Set options
-     *
-     * @param \Master\CoreBundle\Entity\Cities $city
-     * @return Areas
-     */
-    public function setOptions($options)
-    {
-        $this->options = $options;
-    	
-    	return $this;
-    }
-
-    /**
-     * Get resultFieldName
-     *
-     * @return \Master\CoreBundle\Entity\Cities 
-     */
-    public function getOptions()
-    {
-        return $this->options;
     }
 }
