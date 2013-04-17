@@ -14,19 +14,23 @@ instead of showing all list.
 
 
 AUTHORITY
+
  Gleb Tiltikov <gleb@netstar.od.ua>
  https://github.com/GlebNetstar
 
 
 LICENSE
+
  By MIT License
 
 
 VERSION
+
  1 alpha
 
 
 DEPENDENCIES
+
  - Symfony 2.1 or newer
  - jQuery
  - FOS\JsRoutingBundle
@@ -34,6 +38,7 @@ DEPENDENCIES
 
 
 INSTALLATION
+
  Enable bundle in kernel:
  new Netstar\FormSchemaBundle\NetstarFormSchemaBundle(),
  
@@ -53,9 +58,10 @@ INSTALLATION
   
 
 USAGE
+
  Have a look at Admin/ExampleAdmin.php
  
- Get new shcema service:
+ Get new schema service:
  $formSchema = $this->container->get('form.schema')->newSchema($formMapper->getFormBuilder()); // Creation of FormSchema object
  
  As the parameter you have to pass formBuilder of appropriate form.
@@ -97,9 +103,11 @@ USAGE
 
 
 KNOWN ISSUES
+
  - In Sonata, if object with relation is using as collection, problem with label field translation in dev environment.
 
 TODO
+
  - Check and improve to Symfony 2.2 support (& Sonata 2.1), perhaps it already in accordance 
  
 
@@ -107,6 +115,7 @@ TODO
 Please don't hesitate to contact me by any question or with the bug reports!
 
 Email: gleb@netstar.od.ua
+
 Facebook: http://www.facebook.com/glebnetstar
 
 
