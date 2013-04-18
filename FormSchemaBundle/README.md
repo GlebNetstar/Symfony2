@@ -53,12 +53,15 @@ Installation
   - Add to autoload;
  
   - Add following lines to twig section in config.yml:
-
 ``` php
  	twig:
 	    form:
         	resources:
 	            - 'NetstarFormSchemaBundle:Form:fields.html.twig'
+```
+  - Don't forget to include JsRoutingBundle routes
+``` html
+  <script type="text/javascript" src="{{ asset('js/fos_js_routes.js') }}"></script> 
 ```
             
   - If you want to use FormRelationSonataAdminFilter you need to override template
