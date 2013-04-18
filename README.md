@@ -1,16 +1,16 @@
-Form schema bundle 1
+Form schema bundle 1 (Build relations between selectboxes)
 ========
 
-This bundle allows to add schema to any forms, with the relative entities, described only as select boxes.
-This service just need in access formBuilder of the form.
-At view level slave select boxes will only contain values, constrained by master selectbox.
-Form will pass validation and value of slave select boxes will change automatically when master selectbox is changing.
-There is a controller which will retrieve slave entity values and it will be done automatically. Also it's secured
-by user session.
-
-This is most actual in Sonata Admin, if your editing entity has depended properties related as Country -> Region -> City -> Subway
-and you may have many cities and metro stations, so, more useful to show only actual metro stations if some city is selected,
-instead of showing all list.
+ This bundle allow to add schema to any form, which has relative entities, described as "entity" types.
+ This service just need to access formBuilder of appropriate form.
+ At view level slave selectboxes will only contain values, constrained by master selectbox.
+ Form will pass validation and value of slave select boxes will be changed automatically when master selectbox changing.
+ There is a controller to retrieve values for slaves and it is done automatically.
+ Parameters for each ajax request is stored in current user session, and each form element has unique html class name.
+ 
+ This is most actual in Sonata Admin, when user edit entity and it has depended properties related as Country -> Region -> City -> Subway station
+ in this case user may have many cities and metro stations, so more useful to show only actual stations if some city is selected,
+ instead of showing all list.
 
 
 AUTHORITY
@@ -35,7 +35,7 @@ VERSION
 DEPENDENCIES
 ------------
 
- - Symfony 2.1 or newer
+ - Symfony **2.1** or newer
  - jQuery
  - FOS\JsRoutingBundle
  - Doctrine
@@ -44,30 +44,32 @@ DEPENDENCIES
 INSTALLATION
 ------------
 
- Enable bundle in kernel:
- new Netstar\FormSchemaBundle\NetstarFormSchemaBundle(),
+  - Enable bundle in kernel:
+``` php
+ 	new Netstar\FormSchemaBundle\NetstarFormSchemaBundle(),
+```
  
- Add to autoload;
+  - Add to autoload;
  
- Add following lines to twig section in config.yml:
+  - Add following lines to twig section in config.yml:
 
- twig:
-    form:
-        resources:
-            - 'NetstarFormSchemaBundle:Form:fields.html.twig'
+ 	twig:
+	    form:
+        	resources:
+	            - 'NetstarFormSchemaBundle:Form:fields.html.twig'
             
-  If you want to use FormRelationSonataAdminFilter you need to override template
-  standard_layout.html.twig in SonataAdmin and add to javascript block:
-  
+  - If you want to use FormRelationSonataAdminFilter you need to override template
+    ``standard_layout.html.twig`` in SonataAdmin and add to javascript block:
+``` php
   {% include 'NetstarFormSchemaBundle::sonata_filters.html.twig' %}
-  
+```
 
 USAGE
 -----
 
  Have a look at Admin/ExampleAdmin.php
  
- Get new schema service:
+ Get schema service:
  
 ``` php
  $formSchema = $this->container->get('form.schema')->newSchema($formMapper->getFormBuilder()); // Creation of FormSchema object
@@ -81,16 +83,16 @@ USAGE
 	->setFindByFieldName('city') // Used in controller to make correct requests
 	->setOrderByParams(array('name' => 'ASC'))
 	->setQueryBuilder('city') // Name of related field in orm.yml schema
-	->setResultFieldName('name'); // Name of field which contain value showing in slave selectbox on update
+	->setResultFieldName('name'); // Name of field which contain value showing in slave selectbox after update
 	
- $formSchema->addRelation($form_relation1); // You can add as many relatins as you wish
+ $formSchema->addRelation($form_relation1); // You can add as many relatins as you wish, they also can contain subrelations.
  
  $this->container->get('form.schema')->set($formSchema); // Process schema
 ```
  
  
  
- To make FormRelationSonataAdminFilter you have to do the following:
+ To make FormRelationSonataAdminFilter you have to do following:
  
 ``` php
  $filterSchema = $this->container->get('form.schema')->newSonataFilter(); // Creation of SonataFilter object
@@ -109,7 +111,7 @@ USAGE
 
  $filterSchema->addRelation($form_relation);
  
- $this->container->get('form.schema')->set($filterSchema, 'sonata_filter'); // 'sonata_filter' in parameter switching to Sonata Filter processing instead of Form Relation
+ $this->container->get('form.schema')->set($filterSchema, 'sonata_filter'); // 'sonata_filter' string in parameter is to switch Sonata Filter processing instead of Form Relation
 ```
 
 
