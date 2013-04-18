@@ -59,14 +59,14 @@ Installation
         	resources:
 	            - 'NetstarFormSchemaBundle:Form:fields.html.twig'
 ```
-  - Don't forget to include JsRoutingBundle routes
+  - Don't forget to regenerate and include JsRoutingBundle routes
 ``` html
   <script type="text/javascript" src="{{ asset('js/fos_js_routes.js') }}"></script> 
 ```
             
   - If you want to use FormRelationSonataAdminFilter you need to override template
     ``standard_layout.html.twig`` in SonataAdmin and add to javascript block:
-``` php
+``` html
   {% include 'NetstarFormSchemaBundle::sonata_filters.html.twig' %}
 ```
 
