@@ -1,4 +1,4 @@
-Form schema bundle 1 (Build relations between selectboxes)
+Form schema bundle 1 (build relations between entity selectboxes)
 ========
 
  This bundle allow to add schema to any form, which has relative entities, described as "entity" types.
@@ -54,10 +54,12 @@ Installation
  
   - Add following lines to twig section in config.yml:
 
+``` php
  	twig:
 	    form:
         	resources:
 	            - 'NetstarFormSchemaBundle:Form:fields.html.twig'
+```
             
   - If you want to use FormRelationSonataAdminFilter you need to override template
     ``standard_layout.html.twig`` in SonataAdmin and add to javascript block:
